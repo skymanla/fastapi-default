@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  fastapi-default:
+    image: fastapi-default
+    hostname: fastapi-default
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/code/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    # command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 2 --log-config log.ini
+    # reload 와 worker는 상호 베타적이어서 같이 쓸 수 없다
+
