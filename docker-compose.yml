@@ -2,8 +2,11 @@ version: "3.7"
 
 services:
   fastapi-default:
-    image: fastapi-default
+    # image: fastapi-default
     hostname: fastapi-default
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
